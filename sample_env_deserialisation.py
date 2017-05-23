@@ -9,12 +9,12 @@ class SampleEnvDeserialiser142(object):
     """
 
     @staticmethod
-    def deserialise_sample_env_data(buf):
+    def deserialise_data(buf):
         """
         Extract sample environment data from FlatBuffers encoded data.
 
         :param buf: the FlatBuffers data buffer as a bytearray
-        :return: a dictionary containing the information
+        :return: a dictionary containing the relevant information
         """
         ans = LogData.LogData.GetRootAsLogData(buf, 0)
 
