@@ -1,9 +1,3 @@
-import EventSchema42.EventMessage as EventMessage
-import EventSchema42.FacilityData as FacilityData
-from EventSchema42.ISISData import ISISData
-from EventSchema42.RunState import RunState
-
-
 class EventDeserialiser42(object):
     """
     Deserialisation for event data encoded with the f42 schema.
@@ -17,6 +11,11 @@ class EventDeserialiser42(object):
         :param buf: the FlatBuffers data buffer as a bytearray
         :return: a dictionary containing the relevant information
         """
+        import EventSchema42.EventMessage as EventMessage
+        import EventSchema42.FacilityData as FacilityData
+        from EventSchema42.ISISData import ISISData
+        from EventSchema42.RunState import RunState
+
         ans = EventMessage.EventMessage.GetRootAsEventMessage(buf, 0)
 
         data = dict()
@@ -33,8 +32,6 @@ class EventDeserialiser42(object):
         for i in range(ans.TimeOfFlightLength()):
             tofs.append(ans.TimeOfFlight(i))
         data["tofs"] = tofs
-
-        d = ans.FacilitySpecificDataType()
 
         if ans.FacilitySpecificDataType() == FacilityData.FacilityData.ISISData:
             isis_data = ISISData()
