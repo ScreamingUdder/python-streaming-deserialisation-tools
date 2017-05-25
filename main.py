@@ -4,7 +4,7 @@ from kafka_data_fetcher import KafkaDataFetcher
 
 
 BROKERS = ["tenten:9092", "sakura:9092"]
-SE_TOPIC_NAME = "forwarder_test"
+SE_TOPIC_NAME = "fewtestdata_sampleEnv"
 EVENT_TOPIC_NAME = "fewtestdata_events"
 
 # Get SE data
