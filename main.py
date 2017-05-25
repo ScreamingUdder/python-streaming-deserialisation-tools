@@ -14,4 +14,3 @@ print SampleEnvDeserialiser.deserialise_data(buf)
 # Get event data
 buf = KafkaDataFetcher.fetch_data(BROKERS, EVENT_TOPIC_NAME)
 print EventDeserialiser.deserialise_data(buf)
-
