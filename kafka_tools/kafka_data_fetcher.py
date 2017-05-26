@@ -3,7 +3,7 @@ from kafka import KafkaConsumer, TopicPartition
 
 class KafkaDataFetcher(object):
     """
-    Fetches data from Kafka.
+    Fetches data from kafka_tools.
     """
 
     @staticmethod

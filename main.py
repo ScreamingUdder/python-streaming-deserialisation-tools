@@ -1,6 +1,6 @@
-from sample_env_deserialisation import SampleEnvDeserialiser142 as SampleEnvDeserialiser
-from event_deserialisation import EventDeserialiser42 as EventDeserialiser
-from kafka_data_fetcher import KafkaDataFetcher
+from deserialisers.sample_env_deserialisation import SampleEnvDeserialiser142 as SampleEnvDeserialiser
+from deserialisers.event_deserialisation import EventDeserialiser42 as EventDeserialiser
+from kafka_tools.kafka_data_fetcher import KafkaDataFetcher
 
 
 BROKERS = ["tenten:9092", "sakura:9092"]
