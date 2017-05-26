@@ -4,7 +4,7 @@ from deserialisers.event_deserialisation import EventDeserialiser42
 
 class TestEventDeserialiser42(unittest.TestCase):
     def setUp(self):
-        with open('example_event_42', 'rb') as f:
+        with open('example_event_42.bin', 'rb') as f:
             buf = f.read()
             self.data = EventDeserialiser42.deserialise_data(buf)
             print self.data
