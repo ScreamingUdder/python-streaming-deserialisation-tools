@@ -42,7 +42,7 @@ class KafkaDataFetcher(object):
     @staticmethod
     def get_offset_range(brokers, topic):
         """
-        Get the starting and ending offset of the topic
+        Get the starting and ending offset of the topic.
 
         :param brokers: a list of brokers
         :param topic:  the topic name
