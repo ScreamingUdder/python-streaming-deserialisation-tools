@@ -3,7 +3,7 @@ from kafka import KafkaConsumer, TopicPartition
 
 class KafkaDataFetcher(object):
     """
-    Fetches data from kafka_tools.
+    Fetches data from kafka.
     """
 
     @staticmethod
@@ -38,3 +38,27 @@ class KafkaDataFetcher(object):
         consumer.close()
 
         return buf
+
+    @staticmethod
+    def get_offset_range(brokers, topic):
+        """
+        Get the starting and ending offset of the topic
+
+        :param brokers: a list of brokers
+        :param topic:  the topic name
+        :return: tuple contains start and end offsets
+        """
+        topic = TopicPartition(topic, 0)
+
+        consumer = KafkaConsumer(bootstrap_servers=brokers)
+        consumer.assign([topic])
+
+        consumer.seek_to_beginning(topic)
+        start_pos = consumer.position(topic)
+
+        consumer.seek_to_end(topic)
+        end_pos = consumer.position(topic)
+
+        consumer.close()
+
+        return start_pos, end_pos
